@@ -1,0 +1,134 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(//themes.googleusercontent.com/static/fonts/sourcesanspro/v5/ODelI1aHBYDBqgeIAH2zlBM0YzuT7MdOe03otPbuUS0.woff) format('woff');
+}
+
+body, html { margin: 0; padding: 0; height: 100%; }
+section, .editor { display: block; padding: 0; }
+
+body {
+  background: #f8f8f8;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+p { margin-top: 0; }
+
+h2, h3, h1 {
+  font-weight: normal;
+  margin-bottom: .7em;
+}
+h1 { font-size: 140%; }
+h2 { font-size: 120%; }
+h3 { font-size: 110%; }
+.editor > h2:first-child, section:first-child > h2 { margin-top: 0; }
+
+
+a, a:visited, a:link, .quasilink {
+  color: #A21313;
+  text-decoration: none;
+}
+
+em {
+  padding-right: 2px;
+}
+
+.quasilink {
+  cursor: pointer;
+}
+
+.editor {
+  max-width: 600px;
+  margin: 0 0 0 0;
+  border-right: 2px solid #E30808;
+  padding: 30px 30px 30px 30px;
+  background: white;
+  z-index: 2;
+  position: relative;
+  min-height: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+
+@media screen and (min-width: 1000px) {
+  .editor {
+    margin: 0 ;
+  }
+}
+
+
+.bigbutton {
+  cursor: pointer;
+  text-align: center;
+  padding: 0 1em;
+  display: inline-block;
+  color: white;
+  position: relative;
+  line-height: 1.9;
+  color: white !important;
+  background: #A21313;
+}
+
+.bigbutton.right {
+  border-bottom-left-radius: 100px;
+  border-top-left-radius: 100px;
+}
+
+.bigbutton.left {
+  border-bottom-right-radius: 100px;
+  border-top-right-radius: 100px;
+}
+
+.bigbutton:hover {
+  background: #E30808;
+}
+
+th {
+  text-decoration: underline;
+  font-weight: normal;
+  text-align: left;
+}
+
+#features ul {
+  list-style: none;
+  margin: 0 0 1em;
+  padding: 0 0 0 1.2em;
+}
+
+#features li:before {
+  content: "-";
+  width: 1em;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  margin-left: -1em;
+}
+
+.rel {
+  margin-bottom: 0;
+}
+.rel-note {
+  margin-top: 0;
+  color: #555;
+}
+
+pre {
+  padding-left: 15px;
+  border-left: 2px solid #ddd;
+}
+
+code {
+  padding: 0 2px;
+}
+
+strong {
+  text-decoration: underline;
+  font-weight: normal;
+}
+
+.field {
+  border: 1px solid #A21313;
+}

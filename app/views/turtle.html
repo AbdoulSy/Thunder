@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta Charset="utf-8" />
+<link rel=stylesheet href="./stylesheets/docs.css">
+<link rel="stylesheet" href="./stylesheets/codemirror.css">
+<link rel="stylesheet" href="./stylesheets/index.css">
+<title>Turtle browser</title>
+</head>
+<body>
+<div class="editor">
+<h2>Turtle document</h2>
+<textarea id="code" name="code">
+@prefix rdfa: <http://www.w3.org/ns/rdfa#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix c: <http://smartlogic.com/classification/> .
+
+<http://somelocation/documents/doc-1234>
+ c:docTitle "" ;
+ c:docDate "2015-01-29 08:15:48.149" .
+
+_:1 
+   rdf:type schema:Event;
+   schema:url <http://localhost/play/nba-miami-philidelphia-game3.html>;
+   schema:name "Miami Heat at Philadelphia 76ers - Game 3 (Home Game 1)";
+   schema:startDate "2011-04-21T20:00";
+   schema:location _:2;
+   schema:offers _:4 .
+_:2 
+   rdf:type schema:Place;
+   schema:url <http://localhost/play/wells-fargo-center.html>;
+   schema:address _:3 .
+_:3 
+   rdf:type schema:PostalAddress;
+   schema:addressLocality "Philadelphia";
+   schema:addressRegion "PA" .
+_:4 
+   rdf:type schema:AggregateOffer;
+   schema:lowPrice "$35";
+   schema:offerCount "1,938" .
+ </textarea>
+ <button name="parse" id="parse" value="parse">Parse</button>
+ </div>
+<div id="graph"></div>
+
+<script src="./js/codemirror.js"></script>
+<script src="./js/turtle.js"></script>
+
+        <script type="text/javascript" src="./js/URI.js"></script>
+       <script type="text/javascript" src="./js/RDFaGraph.js"></script>
+       <script type="text/javascript" src="./js/TurtleParser.js"></script>
+    <script src="./js/jquery.min.js"></script>
+       <script type="text/javascript" src="./js/viewer.js"></script>
+    <script type="text/javascript" src="./js/d3.v2.min.js"></script>
+    <script type="text/javascript" src="./js/visualization.js"></script>
+
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        mode: "text/turtle",
+        matchBrackets: true,
+        lineWrapping: true,    
+      });
+      
+   document.getElementById("parse").onclick = function() {
+      var text = editor.getValue();
+      var parser = new TurtleParser();
+      parser.parse(text);
+      if (parser.errorCount>0) {
+         alert("There were "+parser.errorCount+" errors encountered during the parse, check your browser console.");
+      }
+      
+      var d3Nodes = viewer.toD3TreeGraph(parser.context);
+      viz.redraw(d3Nodes)
+   }
+      
+      
+    </script>
+
+  </body>
+</html>
