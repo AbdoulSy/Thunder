@@ -1,0 +1,34 @@
+{
+  "name": "thunder",
+  "version": "0.0.0",
+  "description": "The General SVG Visualizer, It can process any type of data",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node ./bin/www"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbdoulSy/Thunder.git"
+  },
+  "keywords": [
+    "Visualisation",
+    "D3"
+  ],
+  "dependencies": {
+    "body-parser": "~1.10.2",
+    "cookie-parser": "~1.3.3",
+    "debug": "~2.1.1",
+    "express": "~4.11.1",
+    "jade": "~1.9.1",
+    "morgan": "~1.5.1",
+    "serve-favicon": "~2.2.0"
+  },
+  "author": "Abdoul Sy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AbdoulSy/Thunder/issues"
+  },
+  "homepage": "https://github.com/AbdoulSy/Thunder#readme"
+}
